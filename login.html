@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INICIA SESION-WIFI YOSA.NET</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bostrap.css">
+   
+    <!--<link rel="stylesheet" href="css/particles.css">-->
+</head>
+<header class="main-header">
+    <div class="main-header">
+      <img src="img\logo-light.svg" title="" alt="">
+      <p class="header-title" style="margin-bottom: 0px;">INICIA SESION</p>
+    </div>
+</header>
+
+<body class="lite">
+    <!-- two other colors
+<body>
+<body class="lite">
+<body class="dark">
+
+-->
+
+    $(if chap-id)
+    <form name="sendin" action="$(link-login-only)" method="post" style="display:none">
+        <input type="hidden" name="username" />
+        <input type="hidden" name="password" />
+        <input type="hidden" name="dst" value="$(link-status)" />
+        <input type="hidden" name="popup" value="true" />
+    </form>
+
+    <script src="/md5.js"></script>
+    <script>
+        function doLogin() {
+            document.sendin.username.value = document.login.username.value;
+            document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+            document.sendin.submit();
+            return false;
+        }
+
+    </script>
+    $(endif)
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-lg-5">
+               
+                <div class="info">
+                    <h5>INGRESA TU FICHA O ESCANEA EL CODIGO QR PARA ACCEDER A INTERNET</h5>
+                    $(if error)
+                    <div class="alert">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                        <strong>Error: </strong>$(error)
+                    </div>
+                    $(endif)
+                </div>
+                <form name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+                    <img class="logo" src="img\logo-login.svg" title="" alt="">
+                    <input type="hidden" name="dst" value="$(link-status)" />
+                    <input type="hidden" name="popup" value="true" />
+                    <label>
+                        <img class="ico" src="img/user.svg" alt="#" />
+                        <input class="username" name="username" type="text" value="$(username)" placeholder="Username" />
+                        <a class="btn-qr" href="javascript:window.open('https://yobbas2401.github.io/qr-scan-fichas','','width=600,height=400,left=50,top=50,toolbar=yes');void 0"><img class="ico2" src="img/qr-code-scan.svg" alt="#" /> </a>
+                    </label>
+                    <label>
+                        <img class="ico" src="img/password.svg" alt="#" />
+                        <input name="password" type="password" placeholder="Password" />
+                    </label>
+                    <label>
+                    
+                    <input type="submit" value="Iniciar Sesion" /> 
+                    </label>
+                </form>
+                <p class="info bt"></p>
+
+                <div class="card">
+                    <div class="card-header">ADQUIERE TUS FICHAS EN:</div>
+                    <div class="card-body">
+                    <li class="card-text">EL DOMICILIO DE LA SRA. YOLANDA REYES</li>
+                    <li class="card-text">EL DOMICILIO DE ADRIANA GABINO</li>
+                    <li class="card-text">LA TIENDA CONASUPO</li>
+                </div>
+
+            </div>
+            </div>
+            <div class="col-lg-7 publicidad" style="margin-top:25px; text-align: center;">
+                <img src="img\BANNER.svg" title="" alt="" style="background-color: rgba(0, 0, 0, 0.445); backdrop-filter: blur(4.6px);">
+            </div>
+        </div>
+    </div>
+  <!--$(if error)
+  <script>
+    alert("$(error)");
+  </script>
+  $(endif)-->  
+</body>
+<footer>©Wifi Monte Aguila</footer>
+</html>
