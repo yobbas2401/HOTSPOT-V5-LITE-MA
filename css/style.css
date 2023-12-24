@@ -540,7 +540,7 @@ table td:first-child {
 .lite .info,
 .lite h1,
 .lite table td {
-    color: #0a0a0a
+    color: #000000
 }
 
 .lite input[type=password]:focus,
